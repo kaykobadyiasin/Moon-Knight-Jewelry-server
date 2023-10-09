@@ -26,7 +26,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        client.connect();
+        await client.connect();
 
 
         const jewelrysCollection = client.db("moonJewelry").collection("jewelrys");
@@ -36,8 +36,6 @@ async function run() {
             const result = await jewelrysCollection.find().toArray();
             res.send(result)
         })
-
-
 
 
         // Send a ping to confirm a successful connection
